@@ -1,0 +1,1 @@
+SELECT fldBuilding, SUM(fldNumStudents) AS totalSudents, fldDays FROM tblSections WHERE fldDays LIKE "%F%" GROUP BY fldBuilding ORDER BY fldBuilding

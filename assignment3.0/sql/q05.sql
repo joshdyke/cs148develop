@@ -1,0 +1,1 @@
+SELECT fldFirstName, fldLastName, SUM(fldNumStudents) as total FROM tblTeachers JOIN tblSections ON tblSections.fnkTeacherNetId = tblTeachers.pmkNetId JOIN tblCourses ON tblCourses.pmkCourseId = tblSections.fnkCourseId WHERE tblCourses.fldDepartment = "CS" AND tblSections.fldType NOT LIKE "lab" AND fldNumStudents NOT LIKE 0 GROUP BY tblTeachers.fldLastName ORDER BY total desc;

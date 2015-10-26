@@ -1,0 +1,1 @@
+SELECT fldFirstName, fldLastName, fldPhone, fldSalary FROM tblTeachers WHERE fldSalary < (SELECT AVG(fldSalary) FROM tblTeachers) ORDER BY fldSalary DESC;

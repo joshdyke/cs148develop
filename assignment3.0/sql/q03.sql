@@ -1,0 +1,1 @@
+SELECT DISTINCT fldCourseName, fldStart FROM tblSections JOIN tblTeachers ON tblTeachers.pmkNetId = tblSections.fnkTeacherNetId JOIN tblCourses ON tblCourses.pmkCourseId = tblSections.fnkCourseId WHERE tblTeachers.pmkNetId = "jlhorton" ORDER BY fldStart;
