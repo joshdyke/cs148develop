@@ -19,6 +19,7 @@
             <li><a href="assignment3.0/join.php">Assignment 3.0</a></li>
             <li><a href="advising/index.php">Advising</a></li>
             <li><a href="https://www.google.com/">www.google.com</a></li>
+            <li><a href="https://www.google.com/">EDIT</a></li>
         </ul>
     </body>
 
