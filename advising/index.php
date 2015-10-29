@@ -24,6 +24,9 @@ print '<h2>Database: ' . DATABASE_NAME . '</h2>';
 // make each table name a link to display the record
 print '<section id="tables2" class="float_left">';
 
+//get four year plan
+print '<a href="">My Plan</a>';
+
 print '<table>';
 
 $query = 'SHOW TABLES';
