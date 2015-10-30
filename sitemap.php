@@ -19,7 +19,7 @@
             <li><a href="assignment3.0/join.php">Assignment 3.0</a></li>
             <li><a href="advising/index.php">Advising</a></li>
             <li><a href="advising/schema.pdf">schema.php</a></li>
-            <li><a href="ER_Diagram.jpg">ER Diagram</a></li>
+            <li><a href="advising/ER_Diagram.pdf">ER Diagram</a></li>
             <li><a href="https://www.google.com/">www.google.com</a></li>
         </ul>
     </body>
