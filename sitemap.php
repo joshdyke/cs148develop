@@ -17,6 +17,7 @@
             <li><a href="assignment1.0/tables.php">Assignment 1.0</a></li>
             <li><a href="assignment2.0/select.php">Assignment 2.0</a></li>
             <li><a href="assignment3.0/join.php">Assignment 3.0</a></li>
+            <li><a href="misc/friday.php">friday.php In class assignment</a></li>
             <li><a href="advising/index.php">Advising</a></li>
             <li><a href="advising/schema.pdf">schema.php</a></li>
             <li><a href="advising/ER_Diagram.pdf">ER Diagram</a></li>
