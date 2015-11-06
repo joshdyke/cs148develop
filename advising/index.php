@@ -22,6 +22,7 @@ print '<h2>Database: ' . DATABASE_NAME . '</h2>';
 
 //get four year plan
 print '<h1>Four Year Plan</h1>';
+print '<a href="https://jrdyke.w3.uvm.edu/cs148develop/advising/form.php">Create Your 4 Year Plan<a>';
 
 $columns = 2;
     //now print out each record
@@ -40,13 +41,10 @@ $columns = 2;
 // print out a list of all the tables and their description
 // make each table name a link to display the record
 print '<section id="tables2" class="float_left">';
-
-
-    
     
 $columns = 4;
     //now print out each record
-    $query = 'SELECT tblSemester.fnkTerm, tblSemester.fnkYear, fldDept, fldCourseNum ' . 
+    $query = 'SELECT tblSemester.fnkTerm, tblSemester.fnkYear, fldDept, fldCourseNum, fldCredits ' . 
              'FROM tblCourses ' . 
              'JOIN tblSemester ON  tblSemester.fnkCourseId=tblCourses.pmkCourseId ' .
              'JOIN tblSemesterPlan ON tblSemesterPlan.fnkPlanId=tblSemester.fnkPlanId ' .
@@ -60,21 +58,37 @@ $columns = 4;
     $totalCredits = 0;
     $semCredits = 0;
     $semester = "";
+    $year = "";
     
-    
-    foreach ($results as $rec) {
-        
-        print '<h1> ' . $rec[0] . ' ' . $rec[1] . '</h1>';
-        $semester = $rec[0] . ' ' . $rec[1];
-        
-        print '<ol>';
-        for ($i = 2; $i < $columns; $i++) {
-            print '<li>' . $rec[$i] . '</li>';
-            
-        }
-        print '</ol>';
-    }
+    if (is_array($results)){
+        foreach ($results as $row) {
+            if($semester == ""){
+                print '<div>';
+                $semester = $row["fnkTerm"] . ' ' . $row["fnkYear"];
+                print '<h1>' . $semester . '</h1>';
+                print '<ol>';
+            } elseif ($semester != "" && $semester != $row["fnkTerm"] . ' ' . $row["fnkYear"]){
+                print '</ol>';
+                print 'Semester Credits: ' . $semCredits;
+                $semCredits = 0;
+                print '</div>';
+                
+                //create new container box, reassign semester, print heading and restart the ol
+                print '<div>';
+                $semester = $row["fnkTerm"] . ' ' . $row["fnkYear"];
+                print '<h1>' . $semester . '</h1>';
+                print '<ol>';
+            }
+            if($semester == $row["fnkTerm"] . ' ' . $row["fnkYear"]){
+                print '<li>' . $row["fldDept"] . ' ' . $row["fldCourseNum"] . '</li>';
+                $semCredits = $semCredits + $row["fldCredits"];
+                $totalCredits = $totalCredits + $row["fldCredits"];
+            }
 
+        }
+        print 'Total Credits: ' . $totalCredits;
+    }
+ 
 
 print '</article>';
 include "footer.php";
